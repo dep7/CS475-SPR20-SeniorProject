@@ -1,0 +1,74 @@
+Majors/Minors
+Marketing
+Mechanical Engineering
+Management
+Computer Science
+Economics
+Finance
+Electrical Engineering
+Philosophy
+Nursing
+Criminal Justice
+English
+Biology
+Secondary Education
+History
+Chemistry
+Physics
+Environmental Science
+Mathematics
+Political Science
+
+
+Companies:
+PricewaterhouseCoopers
+Deloitte
+Accenture
+R Adams Cowley Shock Trauma Center
+Boeing
+Amazon Web Services
+Vertex Pharmaceuticals
+AOPA
+Lockheed Martin
+Enviroscience
+Booz Allen Hamilton
+Gilead Sciences
+Wells Fargo
+United Healthcare
+Allergan
+JP Morgan
+Ruppert Landscaping
+Atlantic Real Estate
+VTech
+RoosterBio
+Sheppard Pratt
+Omnicon Group
+Tesla
+Herr Foods
+Merril Lynch
+DraftKings
+TruGreen
+Conagra
+
+Grad Schools:
+Boston College
+Cal Berkeley University
+University of Virginia
+Penn State Law
+Robert Morris University
+Stanford
+Lehigh University
+Georgia Tech
+
+Non-Profits:
+Habitat for Humanity
+American Red Cross
+ACLU
+
+Government Agencies:
+Secret Service
+Charles County Public Schools
+US Army
+US Postal Service
+NSA
+NASA
