@@ -64,15 +64,17 @@ a, a:hover, a:focus {
   border-bottom: 1px solid #47748b;
 }
 
-#sidebar ul p, ul label {
+#sidebar ul label {
   color: #fff;
-  /*padding: 50px; */
+  padding-left: 30px;
+  padding-right: 10px;
 }
-/*
+
 #sidebar ul input, ul select {
-  max-width: 75%;
+  margin-left: 50px;
+  max-width: 70%;
 }
-*/
+
 /*
 #sidebar ul li a {
   padding: 10px;
