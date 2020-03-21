@@ -1,0 +1,172 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+/* Content */
+
+#content {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
+}
+
+p, label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
+}
+
+a, a:hover, a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.navbar {
+  padding: 15px 10px;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 40px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+  box-shadow: none;
+  outline: none !important;
+  border: none;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed #ddd;
+  margin: 40px 0;
+}
+
+/* Charts */
+#chart-salary {
+  width: 60%;
+}
+#chart-work {
+  width: 40%;
+}
+#chart-cluster {
+  width: 100%;
+}
+
+/* Radial Cluster */
+
+.node circle {
+  fill: rgb(96, 161, 180);
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.node--internal circle {
+  fill: #555;
+}
+
+.node--internal text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: rgb(38, 51, 124);
+  stroke-opacity: 0.4;
+  stroke-width: 1.5px;
+}
+
+/* Sidebar */
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+#sidebar {
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 100vh;
+  background: #2C3E50;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  margin-left: -400px;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #1C2833;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul label {
+  color: #fff;
+  padding-left: 30px;
+  padding-right: 10px;
+}
+
+#sidebar ul input, ul select {
+  margin-left: 50px;
+  max-width: 70%;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+/*
+#sidebar ul li a {
+  padding: 10px;
+  font-size:m 1.1em;
+  display: block;
+}
+
+#sidebar ul li a:hover {
+  color: #7386D5;
+  background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+  color: #fff;
+  background: #6d7fcc;
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #6d7fcc;
+}
+*/
+ul.CTAs li {
+  padding: 5px;
+  text-align: center;
+}
+
+/* Media */
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -400px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+}
