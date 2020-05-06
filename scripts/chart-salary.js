@@ -3,7 +3,8 @@ var labels = ['Less than $20K', '$20K - $30K', '$30K - $40K', '$40K - $50K', '$5
 
 // Width and Height of SVG
 var svgWidth = d3.select('#chart-salary').style('width').slice(0, -2);
-var svgHeight = 600;
+//var svgHeight = 400;
+var svgHeight = d3.select('#chart-salary').style('height').slice(0, -2);
 
 d3.select('#chart-salary').append('svg')
     .attr('width',svgWidth)
@@ -13,12 +14,12 @@ d3.select('#chart-salary').append('svg')
 // Set SVG
 var svg = d3.select('#chart-salary svg')
 
-var radius = Math.min(svgWidth,svgHeight) / 2 - 100;
-var g = svg.append('g').attr('transform', "translate(" + svgWidth / 2 + "," + svgHeight / 2 + ")");
+var radius = Math.min(svgWidth,svgHeight) / 2 - 120;
+var g = svg.append('g').attr('transform', "translate(" + svgWidth / 2 + "," + ((svgHeight / 2) + 60) + ")");
 
 var color = d3.scaleLinear()
     .domain([0, salary.length])
-    .range(['#3353FF','#FF0000']);
+    .range(['#001244','#fcf7ff']);
 
 // Generate pie
 var pie = d3.pie()
@@ -59,7 +60,7 @@ arcs.append("path")
             var r = i(t);
             var arc = d3.arc()
                 .outerRadius(radius)
-                .innerRadius(r);
+                .innerRadius(r + 30);
             return arc(d);
         };
     })
@@ -67,7 +68,7 @@ arcs.append("path")
 arcs.append('text')
     .attr('transform', function(d) {
         var c = arc.centroid(d);
-        return "translate(" + c[0] * 2.5 +"," + c[1] * 2.2 + ")";
+        return "translate(" + c[0] * 2.8 +"," + c[1] * 2.2 + ")";
     })
     .data(salary)
     .text(function(d) {
@@ -75,7 +76,7 @@ arcs.append('text')
             d3.select(this).attr('display','none');
         }
     })
-    .style("font-size", 22)
+    .style("font-size", 18)
     .attr('text-anchor', 'middle')
 	.transition().duration(2000)
       .delay(0)
@@ -83,21 +84,25 @@ arcs.append('text')
         var element = this;
         var i = d3.interpolate(0, d);
         return function(t) {
-            d3.select(element).text(i(t).toFixed(2));
+            d3.select(element).text(i(t).toFixed(2) + "%");
         };
     });
 
+    
 
 var legendG = svg.selectAll('.legend')
     .data(pie(salary))
     .enter().append('g')
     .attr('transform', function(d,i) {
-        return 'translate(' + (svgWidth / 12) + ',' + (i * 25 + 20) + ')';
+        if (i < 3)
+            return 'translate(' + (svgWidth / 12) + ',' + (i * 20 + 80) + ')';
+        else
+            return 'translate(' + (svgWidth / 2) + ',' + ((i - 3) * 20 + 80) + ')';
     })
     .attr('class', 'legend');
 
 legendG.append('circle')
-    .attr("r", 10)
+    .attr("r", 6)
     .attr('fill', function(d,i) {
         return color(i);
     });
@@ -106,6 +111,14 @@ legendG.append("text") // add the text
     .text(function(d,i){
         return labels[i];
     })
-    .style("font-size", 16)
+    .style("font-size", 14)
     .attr("y", 5)
     .attr("x", 15);
+
+// Add title
+svg.append("text")
+    .attr("x", (svgWidth / 2))             
+    .attr("y", 40)
+    .attr("text-anchor", "middle")  
+    .style("font-size", 22) 
+    .text("Graduate Salaries");
