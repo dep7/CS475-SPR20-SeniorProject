@@ -1,13 +1,32 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-/* Content */
-
-#content {
-  width: 100%;
-  padding: 20px;
-  min-height: 100vh;
-  transition: all 0.3s;
+/* Header */
+#header {
+  padding: 15px;
+  min-height: 180px;
+  height: 180px;
 }
+#header-title {
+  width: 400px;
+  padding: 15px;
+}
+#header-title #vertical-align{
+  text-align: left;
+}
+#sign-in-form {
+  text-align: left;
+  white-space: nowrap;
+}
+#sign-in-form input {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.login-group {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Content */
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -19,7 +38,7 @@ p, label {
   font-size: 1.1em;
   font-weight: 300;
   line-height: 1.7em;
-  color: #999;
+  /*color: #999;*/
 }
 
 a, a:hover, a:focus {
@@ -29,7 +48,10 @@ a, a:hover, a:focus {
 }
 
 .navbar {
-  padding: 15px 10px;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px 10px;
   background: #fff;
   border: none;
   border-radius: 0;
@@ -43,28 +65,75 @@ a, a:hover, a:focus {
   border: none;
 }
 
-.line {
-  width: 100%;
-  height: 1px;
-  border-bottom: 1px dashed #ddd;
-  margin: 40px 0;
+#filter-form-div {
+  align-items: left;
+}
+
+#count-rows {
+  padding-top: 10px;
+  text-align: center;
+}
+
+/* Alert */
+#alert-container {
+  height: 30px;
+  text-align: center;
+}
+
+/* Filters */
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.form-inline label {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.form-inline select {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 /* Charts */
+#charts {
+  margin: 20px;
+}
+.chart-container {
+  width: 2200px;
+}
+.chart-container div {
+  margin: 20px;
+}
+.row div {
+  margin: 0px 10px;
+  text-align: center;
+}
 #chart-salary {
-  width: 60%;
+  width: 500px;
+  height: 500px;
 }
 #chart-work {
-  width: 40%;
+  width: 400px;
+  height: 500px;
+}
+
+#plot-months {
+  width: 600px;
+  height: 500px;
 }
 #chart-cluster {
-  width: 100%;
+  width: 600px;
+  height: 600px;
+  overflow: auto;
 }
 
 /* Radial Cluster */
 
 .node circle {
-  fill: rgb(96, 161, 180);
+  fill: rgb(161, 200, 212);
 }
 
 .node text {
@@ -72,7 +141,7 @@ a, a:hover, a:focus {
 }
 
 .node--internal circle {
-  fill: #555;
+  fill: rgb(41, 35, 65);
 }
 
 .node--internal text {
@@ -86,87 +155,11 @@ a, a:hover, a:focus {
   stroke-width: 1.5px;
 }
 
-/* Sidebar */
-
-.wrapper {
-  display: flex;
-  width: 100%;
-  align-items: stretch;
-}
-
-#sidebar {
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 100vh;
-  background: #2C3E50;
-  color: #fff;
-  transition: all 0.3s;
-}
-
-#sidebar.active {
-  margin-left: -400px;
-}
-
-#sidebar .sidebar-header {
-  padding: 20px;
-  background: #1C2833;
-}
-
-#sidebar ul.components {
-  padding: 20px 0;
-  border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul label {
-  color: #fff;
-  padding-left: 30px;
-  padding-right: 10px;
-}
-
-#sidebar ul input, ul select {
-  margin-left: 50px;
-  max-width: 70%;
-}
-
-a[data-toggle="collapse"] {
-  position: relative;
-}
-
-/*
-#sidebar ul li a {
-  padding: 10px;
-  font-size:m 1.1em;
-  display: block;
-}
-
-#sidebar ul li a:hover {
-  color: #7386D5;
-  background: #fff;
-}
-
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-  color: #fff;
-  background: #6d7fcc;
-}
-
-ul ul a {
-  font-size: 0.9em !important;
-  padding-left: 30px !important;
-  background: #6d7fcc;
-}
-*/
-ul.CTAs li {
-  padding: 5px;
-  text-align: center;
-}
-
-/* Media */
-
-@media (max-width: 768px) {
-  #sidebar {
-    margin-left: -400px;
-  }
-  #sidebar.active {
-    margin-left: 0;
-  }
+@media screen and (min-width: 1360px) 
+{
+    #header {
+      padding: 15px;
+      min-height: 100px;
+      height: 100px;
+    }
 }
