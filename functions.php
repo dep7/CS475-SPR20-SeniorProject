@@ -55,6 +55,74 @@ function majorRowsToCSV(array $rows) {
     }
     return $data;
 }
+function convertDate($str) {
+    $dateArr = explode(", ",$str);
+    $dateArr[0] = monthToInt($dateArr[0]);
+    $time = strtotime($dateArr[0] . "-1-" . $dateArr[1]);
+    return date('Y-m-d',$time);
+}
+function dateRangeCSV($rows) {
+    
+    if (isset($rows[0])) {
+        
+        $graduationDates = array();
+        $employDates = array();
+
+        $minDateGrad = convertDate($rows[0]['Graduation_Date']);
+        $maxDateGrad = convertDate($rows[0]['Graduation_Date']);
+        $minDateEmp = $rows[0]['Employment'];
+        $maxDateEmp = $rows[0]['Employment'];
+
+        foreach($rows as $idx => $val) {
+            $graduationDates[$idx] = convertDate($val['Graduation_Date']);
+            $employDates[$idx] = $val['Employment'];
+
+            if ($minDateGrad > $graduationDates[$idx])
+                $minDateGrad = $graduationDates[$idx];
+            else if ($maxDateGrad < $graduationDates[$idx])
+                $maxDateGrad = $graduationDates[$idx];
+
+            if ($minDateEmp > $employDates[$idx])
+                $minDateEmp = $employDates[$idx];
+            else if ($maxDateEmp < $employDates[$idx])
+                $maxDateEmp = $employDates[$idx];
+        }
+
+        $data = array();
+
+        $data['csv'] = '[';
+
+        foreach($rows as $idx => $val) {
+            $data['csv'] .= '{"id":"Student_' . $val['StudentID'] . '","grad_date":"' . $graduationDates[$idx] . '","employ_date":"' . $employDates[$idx] . '"}';
+            if (($idx + 1) < sizeof($rows)) $data['csv'] .= ',';
+        }
+
+        $data['csv'] .= ']';
+
+        $data['minRange'] = $minDateGrad;
+        $data['maxRange'] = $maxDateEmp;
+
+        return $data;
+    }
+    
+}
+function monthToInt($month) {
+    switch($month) {
+        case 'January': return 1;
+        case 'February': return 2;
+        case 'March': return 3;
+        case 'April': return 4;
+        case 'May': return 5;
+        case 'June': return 6;
+        case 'July': return 7;
+        case 'August': return 8;
+        case 'September': return 9;
+        case 'October': return 10;
+        case 'November': return 11;
+        case 'December': return 12;
+        default: return 1;
+    }
+}
 function majorRowstoJSON(array $rows) {
     if (isset($rows[0])) {
 
