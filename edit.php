@@ -48,6 +48,8 @@ if (isset($_POST['add'])) {
 
   $gMonth = intval(date('m',strtotime($gradDatePost)));
   $gradMY = $months[$gMonth - 1] . ", " . date('Y',strtotime($gradDatePost));
+
+  $db->addStudent($gradMY,$employDatePost,$schoolPost,$companyPost,$titlePost,$typePost,$majorPost,$minorPost,$gpaPost,$salaryPost);
 } 
 else if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
