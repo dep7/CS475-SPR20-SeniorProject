@@ -71,7 +71,9 @@ else if (isset($_GET['delete'])) {
       margin: 10px;
     }
     table {
-      width: "100%";
+      width: 100%;
+      table-layout: fixed;
+      word-wrap:break-word;
     }
     table thead th {
       font-weight: normal;
